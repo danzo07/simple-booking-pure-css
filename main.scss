@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+@mixin Bg-color {
+  background: rgb(193, 64, 255);
+  background: linear-gradient(
+    172deg,
+    rgba(193, 64, 255, 1) 39%,
+    rgba(149, 59, 255, 1) 100%
+  );
+}
+@mixin Msg-box {
+  color: #a867ca;
+  font-weight: 400;
+  background-color: #ede5f4;
+  padding: 10px;
+  border-radius: 20px;
+  border-bottom-left-radius: 10px;
+  margin: 5px 15px;
+}
+@mixin Msg-white {
+  color: #000000c7;
+  font-weight: 400;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 20px;
+  border-bottom-right-radius: 10px;
+  margin: 5px 15px;
+}
+
+body {
+  background-color: #fafafa;
+  height: 100vh;
+  position: relative;
+  font-family: "Rubik", sans-serif;
+}
+
+.shape-1 {
+  @include Bg-color();
+  width: 814px;
+  height: 888px;
+  position: fixed;
+  top: 0;
+  left: -15%;
+  border-bottom-right-radius: 55%;
+  border-bottom-left-radius: 55%;
+  z-index: 100;
+}
+.shape-2 {
+  background-color: #f9f4fa;
+  width: 822px;
+  height: 800px;
+  position: fixed;
+  bottom: 0;
+  right: -20%;
+  border-top-left-radius: 50%;
+}
+
+.cn {
+  z-index: 999;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .cn-1 {
+    max-width: 400px;
+    min-width: 400px;
+    border: rgb(255, 255, 255) 20px solid;
+    border-radius: 50px;
+    background-color: #f5f3f8;
+    box-shadow: 0px 1px 42px -13px rgba(0, 0, 0, 0.2);
+    .box-1 {
+      @include Bg-color();
+      border-top-left-radius: 29px;
+      border-top-right-radius: 29px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 20px 20px 20px;
+      .sub-box-2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        p {
+          color: white;
+          font-size: 30px;
+        }
+        .user-img {
+          width: 50px;
+          height: 50px;
+          background-color: rgb(74, 0, 83);
+          border-radius: 50%;
+          border: 2px solid rgb(255, 255, 255);
+        }
+        .user-status {
+          .user {
+            color: white;
+            font-weight: 500;
+            font-size: 20px;
+          }
+          .status {
+            color: rgba(255, 255, 255, 0.678);
+            font-size: 12px;
+          }
+        }
+      }
+      .sub-box-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        .dot {
+          background-color: white;
+          width: 5px;
+          height: 5px;
+        }
+      }
+    }
+    .box-2 {
+      .msg {
+        display: flex;
+        p {
+          @include Msg-box();
+        }
+      }
+    }
+    .box-3 {
+      .msg-img {
+        display: flex;
+        gap: 3px;
+        flex-direction: row-reverse;
+        margin: 5px 15px;
+
+        .image {
+          width: 70px;
+          height: 70px;
+          background-color: #a47cba;
+          border-radius: 20px;
+        }
+      }
+      .msg-2 {
+        display: flex;
+        flex-direction: row-reverse;
+        p {
+          @include Msg-white();
+        }
+      }
+    }
+    .box-4 {
+      .msg-3 {
+        display: flex;
+        p {
+          @include Msg-box();
+        }
+      }
+      .msg-payment {
+        width: 75%;
+        color: white;
+        @include Bg-color();
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 20px;
+        border-bottom-left-radius: 10px;
+        margin: 5px 15px;
+        .left {
+          display: flex;
+          align-items: center;
+          p {
+            font-weight: 400;
+            font-size: 13px;
+          }
+          .shape {
+            width: 17px;
+            height: 17px;
+            border: 1px solid white;
+            border-radius: 50%;
+            margin-right: 15px;
+          }
+        }
+        .right {
+          p {
+            font-weight: 700;
+            font-size: 22px;
+          }
+        }
+      }
+    }
+    .box-5 {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 15px;
+      padding: 10px 15px;
+      border-radius: 20px;
+
+      .send {
+        background-color: transparent;
+        width: 100%;
+        border: none;
+        outline: none;
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.493);
+        }
+      }
+      .btn {
+        height: 30px;
+        width: 35px;
+        background-color: black;
+        border-radius: 50%;
+        position: relative;
+
+        .chevron {
+          height: 10px;
+          position: relative;
+          display: block;
+          &::after,
+          &::before {
+            position: absolute;
+            display: block;
+            content: "";
+            border: 7px solid transparent;
+          }
+          &::after {
+            top: 8px;
+            left: 10px;
+            /*adjust thickness*/
+            border-left-color: rgb(0, 0, 0);
+          }
+          &::before {
+            top: 8px;
+            left: 13px;
+            border-left-color: rgb(255, 255, 255);
+          }
+        }
+      }
+    }
+  }
+  .cn-2 {
+    padding-left: 100px;
+    padding-top: 250px;
+    min-width: 600px;
+    h2 {
+      font-size: 60px;
+      font-weight: 500;
+      color: rgb(66, 0, 102);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    p {
+      color: rgba(17, 17, 17, 0.849);
+      font-size: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  body {
+    .shape-1 {
+      width: 600px;
+    }
+    .shape-2 {
+      width: 630px;
+    }
+  }
+}
+@media only screen and (max-width: 1030px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .cn {
+    grid-template-columns: 1fr;
+    place-items: center;
+    .cn-2 {
+      padding: 20px;
+      padding-top: 50px;
+      min-width: 100%;
+      h2 {
+        text-align: center;
+        font-size: 44px;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    .shape-1 {
+      width: 428px;
+      height: 672px;
+    }
+    .shape-2 {
+      width: 630px;
+    }
+  }
+}
